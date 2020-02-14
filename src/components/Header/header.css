@@ -1,0 +1,15 @@
+.header-box{
+    background: #ab2a19;
+    height: 100px;
+    width: 98vw;
+    display: flex;
+    align-items: center;
+    color: white;
+    margin-bottom: 15px;
+}
+
+.header-img{
+    height: 50px;
+    margin-left: 50px;
+    margin-right: 20px;
+}

@@ -13,7 +13,7 @@ class Product extends React.Component{
     render(){
         return(
             <div className='product-box'>
-                <img src={this.props.inventory.imageUrl}/>
+                <img className='product-img' src={this.props.inventory.imageUrl} alt=''/>
                 <div className='product-info'>
                     <p>{this.props.inventory.productName}</p>
                     <p>${this.props.inventory.price}</p>
