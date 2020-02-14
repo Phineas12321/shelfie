@@ -1,4 +1,5 @@
 import React from 'react'
+import axios from 'axios'
 import './form.css'
 
 class Form extends React.Component{
@@ -15,6 +16,7 @@ class Form extends React.Component{
         this.handleProductName = this.handleProductName.bind(this)
         this.handlePrice = this.handlePrice.bind(this)
         this.handleReset = this.handleReset.bind(this)
+        this.createProduct = this.createProduct.bind(this)
     }
 
     handleImageUrl(e){
@@ -37,6 +39,17 @@ class Form extends React.Component{
         })
     }
 
+    createProduct(){
+        axios.post('/api/product').then(res =>{
+            this.setState({
+                image_url: this.handleImageUrl,
+                product_name: this.handleProductName,
+                price: this.handlePrice
+            })
+        }).catch(err => console.log(err))
+        this.handleReset()
+    }
+
     render(){
         return(
             <div className='form-box'>
@@ -48,7 +61,7 @@ class Form extends React.Component{
                 <input onChange={this.handlePrice} />
                 <div className='form-buttons'>
                     <button onClick={this.handleReset} >Cancel</button>
-                    <button>Add to Inventory</button> 
+                    <button onClick={this.createProduct} >Add to Inventory</button> 
                 </div>
                 
             </div>
