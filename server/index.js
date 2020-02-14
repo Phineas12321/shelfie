@@ -13,5 +13,6 @@ massive(CONNECTION_STRING).then(db => {
 app.use(express.json())
 
 app.get('/api/inventory', ctrl.getAll)
+app.post('/api/product', ctrl.create)
 
 app.listen(SERVER_PORT, ()=> console.log(`listening on port ${SERVER_PORT}`))
