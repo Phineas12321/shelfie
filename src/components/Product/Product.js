@@ -1,4 +1,5 @@
 import React from 'react'
+import './product.css'
 
 class Product extends React.Component{
     constructor(props){
@@ -11,8 +12,12 @@ class Product extends React.Component{
 
     render(){
         return(
-            <div>
-                Product
+            <div className='product-box'>
+                <img src={this.props.inventory.imageUrl}/>
+                <div className='product-info'>
+                    <p>{this.props.inventory.productName}</p>
+                    <p>${this.props.inventory.price}</p>
+                </div>
             </div>
         )
     }

@@ -3,8 +3,10 @@
     flex-direction: column;
     align-items: center;
     width: 300px;
-    background: mediumseagreen;
+    background: #3ad886;
     height: 400px;
+    border-radius: 5px;
+    margin: 15px;
 }
 
 input{

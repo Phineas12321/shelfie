@@ -1,0 +1,20 @@
+.product-box{
+    display: flex;
+    justify-content: start;
+    background: #d34635;
+    margin: 20px;
+    height: 180px;
+    width: 500px;
+    border-radius: 5px;
+}
+
+img{
+    height: 150px;
+    margin: 15px
+}
+
+.product-info{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}

@@ -11,10 +11,13 @@ class Dashboard extends React.Component{
     }
 
     render(){
+
+        
         return(
             <div>
-                Dashboard
-                <Product/>
+                {this.props.inventory.map((e)=>{
+                    return <Product inventory={e} />
+                })}
             </div>
         )
     }
