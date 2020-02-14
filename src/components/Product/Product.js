@@ -18,6 +18,10 @@ class Product extends React.Component{
                     <p>{this.props.inventory.productName}</p>
                     <p>${this.props.inventory.price}</p>
                 </div>
+                <div>
+                    <button  >Delete</button>
+                    <button  >Edit</button>
+                </div>
             </div>
         )
     }

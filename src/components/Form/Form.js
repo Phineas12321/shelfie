@@ -7,8 +7,8 @@ class Form extends React.Component{
         super(props)
 
         this.state = {
-            imageUrl: '',
-            productName: '',
+            image_url: '',
+            product_name: '',
             price: 0
         }
 
@@ -20,11 +20,11 @@ class Form extends React.Component{
     }
 
     handleImageUrl(e){
-        this.setState({imageUrl: e.target.value})
+        this.setState({image_url: e.target.value})
     }
 
     handleProductName(e){
-        this.setState({productName: e.target.value})
+        this.setState({product_name: e.target.value})
     }
 
     handlePrice(e){
@@ -33,8 +33,8 @@ class Form extends React.Component{
 
     handleReset(){
         this.setState({
-            imageUrl: '',
-            productName: '',
+            image_url: '',
+            product_name: '',
             price: 0
         })
     }
@@ -46,8 +46,10 @@ class Form extends React.Component{
                 product_name: this.handleProductName,
                 price: this.handlePrice
             })
+            this.props.getInventory()
+            this.handleReset()
         }).catch(err => console.log(err))
-        this.handleReset()
+        
     }
 
     render(){
