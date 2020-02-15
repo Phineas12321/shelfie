@@ -23,14 +23,27 @@ module.exports = {
     //     })
     // },
 
-    create: async (req, res) => {
-        const {image_url, product_name, price} = req.body
+    create: (req, res) => {
         const db = req.app.get('db')
-        await db.create_product([image_url, product_name, price]).then(()=>res.sendStatus(200)).catch(err => res.status(500).send(err))
-    }
+        const {image_url, product_name, price} = req.body
+        
+        db.create_product([image_url, product_name, price]).then(()=>{
+            res.sendStatus(200)
+        }).catch(err => {
+            res.status(500).send({errorMessage: `something is wrong`})
+            console.log(err)
+        })
+    },
 
-    // delete: (req, res)=>{
-    //     let id = req.params.id
-    //     let
-    // }
+    delete: (req, res)=>{
+        const db = req.app.get('db')
+        const {id} = req.params
+        db.delete_product(id).then(()=>{
+            res.sendStatus(200)
+        }).catch(err=>{
+            res.status(500).send({errorMessage: `something is wrong`})
+            console.log(err)
+        })
+        
+    }
 }
