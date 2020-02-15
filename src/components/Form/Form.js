@@ -37,6 +37,7 @@ class Form extends React.Component{
             product_name: '',
             price: 0
         })
+        console.log(this.state.image_url)
     }
 
     createProduct(){
