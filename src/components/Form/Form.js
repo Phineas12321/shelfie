@@ -40,17 +40,12 @@ class Form extends React.Component{
         console.log(this.state.image_url)
     }
 
-    createProduct(){
-        axios.post('/api/product').then(res =>{
-            this.setState({
-                image_url: this.handleImageUrl,
-                product_name: this.handleProductName,
-                price: this.handlePrice
-            })
-            this.props.getInventory()
-            this.handleReset()
-        }).catch(err => console.log(err))
+    createProduct(e){
+        console.log(e)
+        axios.post('/api/product', e)
         
+        .catch(err => console.log(err))
+        this.handleReset()
     }
 
     render(){
@@ -64,7 +59,7 @@ class Form extends React.Component{
                 <input onChange={this.handlePrice} />
                 <div className='form-buttons'>
                     <button onClick={this.handleReset} >Cancel</button>
-                    <button onClick={this.createProduct} >Add to Inventory</button> 
+                    <button onClick={()=>{this.createProduct({image_url: this.state.image_url, product_name: this.state.product_name, price: this.state.price})}} >Add to Inventory</button> 
                 </div>
                 
             </div>

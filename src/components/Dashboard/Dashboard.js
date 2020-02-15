@@ -16,6 +16,7 @@ class Dashboard extends React.Component{
         return(
             <div>
                 {this.props.inventory.map((e)=>{
+                    console.log(e)
                     return <Product inventory={e} />
                 })}
             </div>
