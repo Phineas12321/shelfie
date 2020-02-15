@@ -37,7 +37,9 @@ module.exports = {
 
     delete: (req, res)=>{
         const db = req.app.get('db')
+        console.log(req.params)
         const {id} = req.params
+        
         db.delete_product(id).then(()=>{
             res.sendStatus(200)
         }).catch(err=>{

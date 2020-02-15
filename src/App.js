@@ -20,9 +20,9 @@ class App extends React.Component{
     this.getInventory()
   }
 
-  // componentDidUpdate(){
-  //   this.getInventory()
-  // }
+  componentDidUpdate(){
+    this.getInventory()
+  }
 
   getInventory(){
     axios.get('/api/inventory').then(res => this.setState({inventory: res.data}))
