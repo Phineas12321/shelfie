@@ -12,6 +12,8 @@ class Form extends React.Component{
             price: 0
         }
 
+        this.baseState = this.state
+
         this.handleImageUrl = this.handleImageUrl.bind(this)
         this.handleProductName = this.handleProductName.bind(this)
         this.handlePrice = this.handlePrice.bind(this)
@@ -37,29 +39,32 @@ class Form extends React.Component{
             product_name: '',
             price: 0
         })
-        console.log(this.state.image_url)
+        document.getElementById('img-url').value = this.state.image_url
+        document.getElementById('prod-name').value = this.state.product_name
+        document.getElementById('price').value = this.state.price
     }
 
-    createProduct(e){
-        console.log(e)
-        axios.post('/api/product', e)
+    createProduct(){
+        axios.post('/api/product', {...this.state}).then((res => {
+            this.props.getInventory()
+            this.handleReset()
+        }))
         
         .catch(err => console.log(err))
-        this.handleReset()
     }
 
     render(){
         return(
             <div className='form-box'>
                 Image URL:
-                <input onChange={this.handleImageUrl} />
+                <input id='img-url' onChange={this.handleImageUrl} />
                 Product Name:
-                <input onChange={this.handleProductName} />
+                <input id='prod-name' onChange={this.handleProductName} />
                 Price:
-                <input onChange={this.handlePrice} />
+                <input id='price' onChange={this.handlePrice} />
                 <div className='form-buttons'>
-                    <button onClick={this.handleReset} >Cancel</button>
-                    <button onClick={()=>{this.createProduct({image_url: this.state.image_url, product_name: this.state.product_name, price: this.state.price})}} >Add to Inventory</button> 
+                    <button onClick={this.handleReset}>Cancel</button>
+                    <button onClick={()=>{this.createProduct()}} >Add to Inventory</button> 
                 </div>
                 
             </div>

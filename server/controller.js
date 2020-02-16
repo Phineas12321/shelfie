@@ -37,7 +37,6 @@ module.exports = {
 
     delete: (req, res)=>{
         const db = req.app.get('db')
-        console.log(req.params)
         const {id} = req.params
         
         db.delete_product(id).then(()=>{
@@ -47,5 +46,16 @@ module.exports = {
             console.log(err)
         })
         
+    },
+
+    getOne: (req, res)=>{
+        const db = req.app.get('db')
+        const {id} = req.params
+        db.get_product(id).then((product)=> {
+            res.status(200).send(product)
+        }).catch(err=>{
+            res.status(500).send({errorMessage: `something is wrong`})
+            console.log(err)
+        })
     }
 }
