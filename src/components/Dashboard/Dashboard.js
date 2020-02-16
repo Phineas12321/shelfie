@@ -10,14 +10,13 @@ class Dashboard extends React.Component{
     }
 
     deleteProduct(id){
-        axios.delete(`/api/product/${id}`).then(res => this.props.inventory = res.data)
-        this.props.getInventory()
+        axios.delete(`/api/product/${id}`).then(this.props.getInventory())
+        
     }
     render(){
        return(
             <div>
                 {this.props.inventory.map((e)=>{
-                    console.log(e)
                     return <Product deleteProduct = {this.deleteProduct} inventory={e} />
                 })}
             </div>
