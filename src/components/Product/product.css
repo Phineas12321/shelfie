@@ -10,7 +10,8 @@
 
 .product-img{
     height: 150px;
-    margin: 15px
+    width: 200px;
+    margin: 15px;
 }
 
 .product-info{

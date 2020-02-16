@@ -9,6 +9,25 @@
     margin: 15px;
 }
 
+.form-img{
+    height: 140px;
+    width: 200px;
+}
+
+.form-top{
+    display: flex;
+    align-items: center;
+    height: 160px;
+    margin: 15px;
+}
+
+.form-bottom{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 15px;
+}
+
 input{
     width: 90%;
 }

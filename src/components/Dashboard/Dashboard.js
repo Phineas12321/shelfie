@@ -17,6 +17,7 @@ class Dashboard extends React.Component{
        return(
             <div>
                 {this.props.inventory.map((e)=>{
+                    
                     return <Product getProduct = {this.props.getProduct} deleteProduct = {this.deleteProduct} inventory={e} />
                 })}
             </div>
