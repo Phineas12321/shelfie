@@ -45,5 +45,16 @@ module.exports = {
             res.status(500).send({errorMessage: `something is wrong`})
             console.log(err)
         })
+    },
+
+    update: (req, res)=>{
+        const db=req.app.get('db')
+        const {id} = req.params
+        db.update_product(id).then((e)=> {
+            res.sendStatus(200)
+        }).catch(err =>{
+            res.status(500).send({errorMessage: 'something is wrong'})
+            console.log(err)
+        })
     }
 }
