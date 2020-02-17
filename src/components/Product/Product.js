@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 import './product.css'
 
 function Product(props){
@@ -12,7 +13,7 @@ function Product(props){
             </div>
             <div>
                 <button onClick={()=>props.deleteProduct(props.inventory.inventory_id)} >Delete</button>
-                <button onClick={()=>props.getProduct(props.inventory_id)}  >Edit</button>
+                <Link to='/edit/:id' onClick={()=>props.getProduct(props.inventory_id)} >Edit</Link>
             </div>
         </div>
     )
