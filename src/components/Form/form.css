@@ -41,3 +41,8 @@ input{
 button{
     margin: 10px;
 }
+
+.form-on-page{
+    margin-top: 600px;
+    margin-left: 100px;
+}
