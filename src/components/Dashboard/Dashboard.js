@@ -26,7 +26,7 @@ class Dashboard extends React.Component{
     getInventory(){
         axios.get('/api/inventory').then(res => this.setState({inventory: res.data}))
     }
-
+    
     getProduct(id){
         axios.get(`/api/product/${id}`).then(res => this.setState({product: res.data}))
     }

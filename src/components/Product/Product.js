@@ -13,7 +13,7 @@ function Product(props){
             </div>
             <div>
                 <button onClick={()=>props.deleteProduct(props.inventory.inventory_id)} >Delete</button>
-                <Link to='/edit/:id' onClick={()=>props.getProduct(props.inventory_id)} >Edit</Link>
+                <Link to={`/edit/:id`} onClick={()=>props.getProduct(props.inventory_id)} >Edit</Link>
             </div>
         </div>
     )

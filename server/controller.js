@@ -50,8 +50,9 @@ module.exports = {
     update: (req, res)=>{
         const db=req.app.get('db')
         const {id} = req.params
-        db.update_product(id).then((e)=> {
-            res.sendStatus(200)
+        const {image_url, product_name, price} = req.body
+        db.update_product([id, image_url, product_name, price]).then((e)=> {
+            res.status(200).send(e)
         }).catch(err =>{
             res.status(500).send({errorMessage: 'something is wrong'})
             console.log(err)
