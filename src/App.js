@@ -1,13 +1,13 @@
 import React from 'react';
-import Dashboard from './components/Dashboard/Dashboard'
-import Form from './components/Form/Form'
+//import Dashboard from './components/Dashboard/Dashboard'
+//import Form from './components/Form/Form'
 import Header from './components/Header/Header'
 import {HashRouter} from 'react-router-dom'
-import axios from 'axios'
+//import axios from 'axios'
 import './App.css';
 
 class App extends React.Component{
-  constructor(props){
+  /*constructor(props){
     super(props)
 
     // this.state = {
@@ -16,7 +16,7 @@ class App extends React.Component{
     // }
 
     // this.getInventory = this.getInventory.bind(this)
-  }
+  }*/
 
   // componentDidMount(){
   //   this.getInventory()
@@ -32,7 +32,6 @@ class App extends React.Component{
 
   // getProduct(id){
   //   axios.get(`/api/product/${id}`).then(res => this.setState({product: res.data}))
-  //   console.log()
   // }
 
   render(){

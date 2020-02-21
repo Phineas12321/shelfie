@@ -1,6 +1,6 @@
 import React from 'react'
 import Product from '../Product/Product'
-import Form from '../Form/Form'
+//import Form from '../Form/Form'
 import axios from 'axios'
 import './dashboard.css'
 
@@ -26,10 +26,6 @@ class Dashboard extends React.Component{
     getInventory(){
         axios.get('/api/inventory').then(res => this.setState({inventory: res.data}))
     }
-    
-    getProduct(id){
-        axios.get(`/api/product/${id}`).then(res => this.setState({product: res.data}))
-    }
 
     deleteProduct(id){
         axios.delete(`/api/product/${id}`).then(this.getInventory())
@@ -38,9 +34,8 @@ class Dashboard extends React.Component{
     render(){
        return(
             <div className='dashboard-box'>
-                {this.state.inventory.map((e)=>{
-                    
-                    return <Product getProduct = {this.getProduct} deleteProduct = {this.deleteProduct} inventory={e} />
+                {this.state.inventory.map((e, i)=>{
+                    return <Product getProduct = {this.getProduct} deleteProduct = {this.deleteProduct} inventory={e} key={i} />
                 })}
             </div>
         ) 

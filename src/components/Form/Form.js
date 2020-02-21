@@ -26,10 +26,13 @@ class Form extends React.Component{
         this.createProduct = this.createProduct.bind(this)
     }
 
-    
+    componentDidMount(){
+        console.log(this.props)
+        //this.getProduct(this.props.inventory_id)
+    }
 
     componentDidUpdate(oldProps){
-        if(oldProps != this.props){
+        if(oldProps !== this.props){
             this.setState({
                 image_url: this.props.image_url,
                 product_name: this.props.product_name,
@@ -72,6 +75,15 @@ class Form extends React.Component{
         }))
         
         .catch(err => console.log(err))
+    }
+
+    getProduct(id){
+        axios.get(`/api/product/${id}`).then(res => this.setState({
+            image_url: res.data.image_url,
+            product_name: res.data.product_name,
+            price: res.data.price
+        }))
+
     }
 
     updateProduct(id){
